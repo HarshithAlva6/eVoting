@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F9F7F7; /* off-white for the main background */
+}
+
+.main-content {
+  display: flex; /* Establishes a flex container */
+  flex-direction: column; /* Stacks flex items vertically */
+  justify-content: center; /* Centers content vertically in the container */
+  align-items: center; /* Centers content horizontally in the container */
+  height: 100vh; /* Full viewport height */
+  flex-grow: 1; /* Takes up any remaining space */
+  text-align: center; /* Ensures text within is centered, useful for the heading */
+  margin-top: 150px;
+}
+
+.bg-ligt {
+  background-color: #DBE2EF;
+}
+
+.loginSection {
+  width: 100%; /* Full width of the container or adjust as needed */
+  max-width: 360px; /* Maximum width of the login section */
+}
+
+
+.navbar {
+  min-width: 200px;
+  max-width: 200px;
+  height: 100vh; /* Full screen height */
+  background-color: #DBE2EF; /* Light blue-gray for the navbar */
+}
+
+.navbarCol {
+  padding: 0;
+}
+
+.nav-link {
+  width: 100%;
+  color: #112D4E; /* Dark blue for link text */
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: #3F72AF; /* Medium blue for active/hover state */
+  color: white; /* White text on active/hover state */
+  border-radius: 5px;
+}
+
+.trimmed-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* This will add an ellipsis (...) to indicate trimmed text */
+}
+
+.login {
+  width: 50%;
+  margin: 10% auto;
+  color: #112D4E; /* Dark blue for text in login section */
+}
+
+.loginSection {
+  width: 360px;
+  margin: auto;
+  border-color: #3F72AF; /* Medium blue for border */
+}
+
+.loginSection p {
+  font-size: 14px;
+  color: #112D4E; /* Dark blue for paragraph text */
+}
+
+.btn-outline-dark {
+  border-color: #3F72AF; /* Medium blue for button borders */
+  color: #3F72AF; /* Medium blue for button text */
+}
+
+.btn-outline-dark:hover {
+  background-color: #3F72AF; /* Medium blue for button background on hover */
+  color: white; /* White text on button hover */
+}
+
+.my-toggle {
+  border-color: #3F72AF; /* Medium blue for toggle borders */
+}
+
+#adminSection, #nftSection, .votingSection, .listSection {
+  width: fit-content;
+  margin: auto;
+}
+
+.hr-text {
+  color: #112D4E; /* Dark blue for horizontal rule text */
+  background-color: #F9F7F7; /* Off-white background for hr text */
+}
+
+hr:before {
+  background: linear-gradient(to right, transparent, #112D4E, transparent); /* Dark blue gradient for hr line */
+}
+
+.confetti-piece {
+  /* Customize with appropriate colors if needed */
+}
+
+.card-img-top {
+  height: 400px;
+  object-fit: cover;
+}
+
+.card-body {
+  height: 50px;
+  overflow: hidden;
+}
+
+.content, .resultSection p {
+  color: #112D4E; /* Dark blue for centered content and result section paragraphs */
+}
+
+#mint, #seller {
+  color: #112D4E; /* Dark blue for specific ids */
+}

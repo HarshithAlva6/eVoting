@@ -1,0 +1,314 @@
+body {
+  flex-direction: row;
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */  
+  background-color:#EEF7FF;
+}
+
+.navbar-vertical {
+  width: 250px; /* Set the width of the vertical navbar */
+  height: 100%; /* Full height */
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  z-index: 1030; /* Ensures it's on top of other content */
+  background-color: #112D4E; /* Dark blue background */
+  color: white;
+}
+
+.navbar-horizontal {
+  position: fixed; /* Fixed position ensures it stays at the top */
+  top: 0; /* Align to the top */
+  left: 250px; /* Offset to the right to accommodate vertical navbar */
+  right: 0; /* Extend to the right edge */
+  height: 56px; /* Set the height of the horizontal navbar */
+  background-color: #DBE2EF; /* Light blue-gray background */
+  z-index: 1029; /* Just below the vertical navbar for layering */
+}
+
+.navbar-nav {
+  flex-direction: column; /* Makes vertical navbar links stack vertically */
+}
+
+.nav-link {
+  color: #F9F7F7; /* Off-white text for readability */
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: #3F72AF; /* Medium blue for hover and active states */
+  border-radius: 5px;
+}
+
+
+/* General styling for the navbar */
+.navbar {
+  background-color: #DBE2EF; /* Light blue-gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  
+}
+
+/* Style for the navbar brand */
+.navbar-brand {
+  font-size: 1.5rem; /* Larger font size for branding */
+  color: #3F72AF; /* Medium blue for branding */
+  font-weight: bold; /* Bold font weight */
+  text-decoration: none; /* Removes underline from links */
+  border-radius: 5px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #112D4E; /* Dark blue on hover/focus for contrast */
+}
+
+/* Right aligned items styling */
+.d-flex {
+  align-items: center; /* Centers items vertically */
+}
+
+/* Admin address and balance specific styling */
+#adminAddress, #adminBalance {
+  font-size: 1rem; /* Regular font size for text */
+  color: #112D4E; /* Dark blue for better readability */
+  margin-right: 5px; /* Right margin for spacing between items */
+}
+
+#adminBalance {
+  font-weight: 500; /* Slightly bolder font weight for balance */
+}
+/* General styling for the navbar */
+.navbar {
+  background-color: #DBE2EF; /* Light blue-gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style for the navbar brand */
+.navbar-brand {
+  font-size: 1.5rem; /* Larger font size for branding */
+  color: #3F72AF; /* Medium blue for branding */
+  font-weight: bold; /* Bold font weight */
+  text-decoration: none; /* Removes underline from links */
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #112D4E; /* Dark blue on hover/focus for contrast */
+}
+
+/* Right aligned items styling */
+.d-flex {
+  align-items: center; /* Centers items vertically */
+}
+
+/* Admin address and balance specific styling */
+/* Admin address and balance card styling */
+#adminAddress, #adminBalance, #logout {
+  background-color: #F9F7F7; /* Off-white background for the cards */
+  color: #112D4E; /* Dark blue for text */
+  padding: 8px 12px; /* Padding inside the cards */
+  border-radius: 10px; /* Rounded corners for the card */
+  margin-right: 10px; /* Right margin for spacing between items */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: inline-block; /* Makes div behave like an inline element with block capabilities */
+  font-weight: 500; /* Slightly bolder font weight for better visibility */
+  background-color: #DBE2EF;
+}
+
+.adminBody {
+  width: 600px; /* Set the width to 600px */
+  margin: 0 auto; /* Center the div horizontally */
+  padding: 20px; /* Optional: adds padding inside the div for better spacing */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for visual depth */
+  background-color: #FFFFFF; /* Optional: sets a background color if needed */
+  border-radius: 10px;
+  margin-top: 60px;
+}
+
+
+#adminBalance {
+  margin-right: 0; /* No margin on the right for the last item */
+}
+
+.adminChotiBody {
+  background-color: #DBE2EF;
+}
+
+.actionSecttion {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* General Styles for the Voter Container */
+.voterContainer {
+  padding-left: 20px;
+  margin-top: 56px; /* Assuming horizontal navbar height */
+  margin-left: 250px; /* Assuming vertical navbar width */ 
+  background-color: #EEF7FF; /* Light background for the container */
+}
+
+
+
+/* Header Styles */
+.voterContainer header h3 {
+  text-align: center;
+  color: #112D4E; /* Dark blue for readability */
+  margin-bottom: 20px;
+}
+
+/* Voting Section and Card Styles */
+.votingSection .listSection .col-md-3 {
+
+}
+
+.form-check {
+  width: 100%;
+  margin-bottom: 20px; /* Space between cards */
+}
+
+.card {
+  background-color: #FFFFFF; /* White background for cards */
+  border-radius: 8px; /* Rounded corners for cards */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.card-img-top {
+  width: 100%; /* Ensures the image is responsive */
+  height: 180px; /* Fixed height for uniformity */
+  object-fit: fill; /* Ensures images cover the space well */
+}
+
+.card-body {
+  padding: 15px;
+  text-align: center; /* Centers the text */
+}
+
+.card-title {
+  color: #112D4E; /* Dark blue for titles */
+}
+
+/* Input Styles */
+.input-group .form-control {
+  border-radius: 5px;
+  border: 1px solid #343a40;
+}
+
+
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#vote, #giveRight, #summary {
+  display: inline-block; /* Ensures buttons are aligned inline */
+  width: auto; /* Adjust width based on content */
+}
+
+/* Horizontal Rule Customization */
+.hr-text {
+  border: none;
+  position: relative;
+  outline: 0;
+  text-align: center;
+}
+
+.hr-text:before {
+  content: '';
+  background: linear-gradient(to right, transparent, #343a40, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+.hr-text[data-content]:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: #112D4E; /* Dark blue for the 'OR' text */
+  background-color: #EEF7FF;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .voterContainer {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 56px; /* Ensure top margin to accommodate horizontal navbar */
+  }
+}
+
+/* Button Base Styling for Softer Look */
+.btn {
+  padding: 8px 16px; /* Smaller padding for a more compact design */
+  font-size: 14px; /* Smaller font size for subtlety */
+  font-weight: normal; /* Less bold to match the softer theme */
+  border-radius: 15px; /* Slightly rounded but less pronounced */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for color changes */
+  margin-right: 10px; /* Consistent margin for separation */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+/* Specific button customizations */
+#giveRight {
+  background-color: #ffe6cc; /* Lighter orange */
+  border: 2px solid #ffcc99; /* Softer border color */
+  color: #996633; /* Darker text for contrast */
+}
+#vote {
+  background-color: #ccffcc; /* Light green */
+  border: 2px solid #b3ffb3; /* Softer green border */
+  color: #339933; /* Dark green text for better readability */
+}
+#summary {
+  background-color: #e0e0e0; /* Light gray */
+  border: 2px solid #cccccc; /* Softer gray border */
+  color: #666666; /* Medium gray text */
+}
+
+/* Hover states for buttons */
+#giveRight:hover, #vote:hover, #summary:hover {
+  cursor: pointer;
+  opacity: 0.9; /* Slight opacity change for interaction feedback */
+}
+
+
+/* Centering the input group */
+.delegate {
+  display: flex;  /* Ensures the elements inside are laid out as flex items */
+  justify-content: center;  /* Centers the flex items horizontally in the container */
+  width: 50%;  /* Adjusts the width to be shorter */
+  margin: 0 auto;  /* Centers the container horizontally in its parent */
+  padding: 10px;  /* Adds some padding inside the container */
+}
+
+/* Styling for the input */
+#delegateId {
+  flex-grow: 1;  /* Allows the input to fill the space in the flex container */
+  border: 1px solid #343a40;  /* Specifies border color and width */
+  margin-right: 10px;  /* Adds space between the input and the button */
+}
+
+/* Styling for the button */
+#delegate {
+  border: 1px solid #343a40;  /* Matches the input border */
+  color: #007bff;  /* Bootstrap primary button text color for contrast */
+  background-color: white;  /* Background color to match form control styling */
+  padding: 6px 12px;  /* Padding inside the button */
+}
+
+ .trimmed-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* This will add an ellipsis (...) to indicate trimmed text */
+  }
+
+  #logout {
+    width: 120px;
+    margin-left: 10px;
+    color: black;
+  }
+
