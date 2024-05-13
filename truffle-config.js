@@ -1,3 +1,4 @@
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -68,6 +69,10 @@ module.exports = {
       host: "127.0.0.1", // Localhost (default: none)
       port: 7545, // Standard Ethereum port (default: none)
       network_id: "5777", // Any network (default: none)
+    },
+    sepoliaETH: {
+      provider: () => new HDWalletProvider("broom timber claim coyote chimney arrow switch escape regular chair sword volcano", "https://rpc.sepolia.org"),
+      network_id: "*", // Match any network id
     },
     //
     // An additional network, but with some advanced options…

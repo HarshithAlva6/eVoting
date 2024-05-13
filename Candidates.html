@@ -16,8 +16,32 @@
     <title>Nova-Vote</title>
   </head>
   <body>
+       <!-- navbar -->
+       <nav class="navbar navbar-expand-lg d-flex flex-column align-items-start navbar-vertical">
+        <div class="container-fluid navbarCol">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-column w-100 h5">
+                    <li class="nav-item px-1">
+                        <a class="nav-link text-muted" aria-current="page" href="./Voter.html">
+                            <i class="bi bi-house-door-fill pe-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link active text-light" href="./Candidates.html">
+                            <i class="bi bi-people-fill pe-2"></i>Candidates
+                        </a>
+                    </li>
+                    <li id="navNft" class="nav-item px-1">
+                        <a class="nav-link text-muted" href="./Nft.html">
+                            <i class="bi bi-nut-fill pe-2"></i>NFT
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-horizontal">
       <div class="container-fluid">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="/voter.html">Nova-Vote</a>
@@ -30,9 +54,20 @@
           </div>
         </div>
       </div>
+      <div id="logout">
+        <a href="/" style="
+        color: black;
+        text-decoration: none;
+    ">
+            <i class="bi bi-escape" style="
+          padding-right: 5px;
+      "></i>Log out
+        </a>
+    </div>
     </nav>
 
     <!-- body -->
+    <div class="candContainer">
     <header class="page-header">
       <h1 style="text-align: center;margin-bottom: 20px; margin-top:10px;">Meet the Candidates</h1>
     </header>
@@ -65,13 +100,14 @@
         </div>
         <div class="col-md-3 mb-4">
           <div class="card">
-            <img src="images/nota2.png" class="card-img-top" alt="Lency Lakhani">
+            <img src="images\female3.jpg" class="card-img-top" alt="Lency Lakhani">
             <div class="card-body">
-              <h5 class="card-title">NOTA</h5>
+              <h5 class="card-title">Lency Lakhani</h5>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
     
     <script src="./candidates.js"></script>

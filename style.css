@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #F9F7F7; /* off-white for the main background */
+  background-image: url("/../images/vote.jpg");
+  background-size: contain;                     
+  background-repeat:   no-repeat;
+  background-position: center center; 
 }
 
 .main-content {

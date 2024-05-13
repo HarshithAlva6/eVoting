@@ -1,3 +1,60 @@
+/* General styling for the navbar */
+.navbar-vertical {
+  width: 250px; /* Set the width of the vertical navbar */
+  height: 100%; /* Full height */
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  z-index: 1030; /* Ensures it's on top of other content */
+  background-color: #112D4E; /* Dark blue background */
+  color: white;
+}
+
+.navbar-horizontal {
+  position: fixed; /* Fixed position ensures it stays at the top */
+  top: 0; /* Align to the top */
+  left: 250px; /* Offset to the right to accommodate vertical navbar */
+  right: 0; /* Extend to the right edge */
+  height: 56px; /* Set the height of the horizontal navbar */
+  background-color: #DBE2EF; /* Light blue-gray background */
+  z-index: 1029; /* Just below the vertical navbar for layering */
+}
+
+.navbar-nav {
+  flex-direction: column; /* Makes vertical navbar links stack vertically */
+}
+
+.nav-link {
+  color: #F9F7F7; /* Off-white text for readability */
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: #3F72AF; /* Medium blue for hover and active states */
+  border-radius: 5px;
+}
+
+
+/* General styling for the navbar */
+.navbar {
+  background-color: #DBE2EF; /* Light blue-gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  
+}
+
+/* Style for the navbar brand */
+.navbar-brand {
+  font-size: 1.5rem; /* Larger font size for branding */
+  color: #3F72AF; /* Medium blue for branding */
+  font-weight: bold; /* Bold font weight */
+  text-decoration: none; /* Removes underline from links */
+  border-radius: 5px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #112D4E; /* Dark blue on hover/focus for contrast */
+}
+
 .trimmed-text {
   white-space: nowrap;
   overflow: hidden;
@@ -72,7 +129,7 @@
 
 /* Admin address and balance specific styling */
 /* Admin address and balance card styling */
-#adminAddress, #adminBalance {
+#adminAddress, #adminBalance, #logout{
   background-color: #F9F7F7; /* Off-white background for the cards */
   color: #112D4E; /* Dark blue for text */
   padding: 8px 12px; /* Padding inside the cards */
@@ -106,4 +163,15 @@
 .actionSecttion {
   display: flex;
   justify-content: center;
+}
+#logout {
+  width: 120px;
+  margin-left: 10px;
+  color: black;
+}
+
+.row{
+  padding-left: 20px;
+  margin-top: 56px; /* Assuming horizontal navbar height */
+  margin-left: 250px; /* Assuming vertical navbar width */ 
 }

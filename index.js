@@ -879,9 +879,9 @@ var userAccountBalance;
 var chairPerson;
 var lastTokenId;
 var lastListingId;
-var ntfAddress = "0xd8Fe0D6FF70284613ca8aA3e6c431cfbf97f96C0";
-var marketAddress = "0xaE5C7577F80148DE381F33Bfedd4403cDd51c3F7";
-var ballotAddress = "0xE9E524D08a19bD8ee9b75193d1512ae12fbb45B8";
+var ntfAddress = "0x77428056BB15c9A8151452E8fE391F10cBbf96A7";
+var marketAddress = "0xd875c5ED5FbAB681FffecAB314bDBEfD81dD8D3C";
+var ballotAddress = "0x4fA090cBd4Eee5F45E18EF120b8bCD1d413c64Ec";
 //   var name = document.querySelector("#name1");
 var proposal_name = document.querySelector("#proposal_name");
 var alertPlaceholder = document.getElementById("txStatus");
@@ -909,14 +909,18 @@ function startApp() {
     if (JSON.parse(sessionStorage.getItem("pause"))) {
       $(".votingSection").hide();
       $(".resultSection").show();
+     
       $(".resultSection").html(`<p>Voting paused</p>`);
     } else if (JSON.parse(sessionStorage.getItem("endVote"))) {
       $(".votingSection").hide();
+      $(".delegateSection").hide();
       $(".resultSection").show();
+      
       winner();
     }
   }
 
+   
   if (window.location.href == window.location.protocol + "//" + window.location.host + "/Admin.html") {
     if (!JSON.parse(sessionStorage.getItem("pause"))) {
       document.getElementById("pause").value = "pause";
@@ -1000,7 +1004,7 @@ function vote(index) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry!! Something wrong happen</div>`,
+        `   <div>Sorry!! You have already given your vote.</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1033,7 +1037,7 @@ function delegateVote(address) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry!! Something wrong happen</div>`,
+        `   <div>Sorry!! You have already delegated your vote</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1044,15 +1048,47 @@ function delegateVote(address) {
 }
 
 function winner() {
-  Ballot.methods
-    .winnerName()
-    .call()
-    .then(function (value) {
-      $(".content").append(
-        `<p>Winner name :- ${value.name}</p><p>Total votes :- ${value.voteCount}</p>`
-      );
+  // Function to fetch winner's information
+  function fetchWinnerInfo() {
+    return Ballot.methods.winnerName().call();
+  }
+
+  // Function to render winner's information
+  function renderWinnerInfo(value) {
+    $(".content").append(`
+      <div class="card border-success mb-3" style="max-width: 28rem;">
+        <div class="card-body text-success">
+          <h2 class="card-title">Winner of the Elections</h2>
+          <hr class="hr-text" data-content="Results" />
+          <h3>${value.name} with ${value.voteCount} Votes</h3>
+        </div>
+      </div>
+    `);
+    console.log(value.name);
+    console.log(value.voteCount);
+    $(".winner-info").hide();
+  }
+
+  // Initialize the UI with the message and a button
+  $(".content").html(`
+
+    <div class="winner-info card border-success mb-3" style="max-width: 28rem;">
+    <div class="card-body text-success">
+      <h2 class="card-title">Winner of the Elections</h2>
+      <hr class="hr-text" data-content="Results" />
+      <button class="btn btn-primary show-winner-button">Show Winner</button>
+    </div>
+  </div>
+  `);
+
+  // Add click event listener to the button
+  $(".content").on("click", ".show-winner-button", function() {
+    fetchWinnerInfo().then(function(value) {
+      renderWinnerInfo(value);
     });
+  });
 }
+
 
 function summaryVotes() {
   Ballot.methods
@@ -1079,7 +1115,7 @@ function resetVote() {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>You successfully reset voting</div>`,
+        `   <div>You successfully reset the voting</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1093,7 +1129,7 @@ function resetVote() {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry! Its unsuccessfull to reset voting</div>`,
+        `   <div>Sorry! Failed to reset voting</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1115,7 +1151,7 @@ function MintNFT() {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>You successfully Mint NFT and tokenId is ${lastTokenId}</div>`,
+        `   <div>You successfully Minted NFT, to generate tokenId ${lastTokenId}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1128,7 +1164,7 @@ function MintNFT() {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry! Its unsuccessfull to mint NFT</div>`,
+        `   <div>Sorry! Failed to mint NFT</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1147,7 +1183,7 @@ function listingNFT(tokenid, price) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>You successfully approved nft</div>`,
+        `   <div>You successfully approved the NFT</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1166,7 +1202,7 @@ function listingNFT(tokenid, price) {
           const wrapper = document.createElement("div");
           wrapper.innerHTML = [
             `<div class="alert alert-success alert-dismissible" role="alert">`,
-            `   <div>You successfully listed nft</div>`,
+            `   <div>You successfully listed NFT</div>`,
             '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
             "</div>",
           ].join("");
@@ -1179,7 +1215,7 @@ function listingNFT(tokenid, price) {
           const wrapper = document.createElement("div");
           wrapper.innerHTML = [
             `<div class="alert alert-danger alert-dismissible" role="alert">`,
-            `   <div>Sorry! Its unsuccessfull to listed NFT</div>`,
+            `   <div>Sorry! Failed to list NFT</div>`,
             '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
             "</div>",
           ].join("");
@@ -1192,7 +1228,7 @@ function listingNFT(tokenid, price) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry! Its unsuccessfull to approved NFT</div>`,
+        `   <div>Sorry! Failed to approve NFT</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1262,7 +1298,7 @@ function buyNft(listingID, price) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>You successfully Buy nft</div>`,
+        `   <div>You successfully bought NFT</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1274,7 +1310,7 @@ function buyNft(listingID, price) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-danger alert-dismissible" role="alert">`,
-        `   <div>Sorry! Its unsuccessfull to buy NFT</div>`,
+        `   <div>Sorry! Failed to buy NFT</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1391,7 +1427,7 @@ $("#pause").click(function (val) {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = [
       `<div class="alert alert-success alert-dismissible" role="alert">`,
-      `   <div>You successfully pause the voting</div>`,
+      `   <div>You successfully paused the voting</div>`,
       '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
       "</div>",
     ].join("");
@@ -1404,7 +1440,7 @@ $("#pause").click(function (val) {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = [
       `<div class="alert alert-success alert-dismissible" role="alert">`,
-      `   <div>Voting is continue</div>`,
+      `   <div>Voting will continue</div>`,
       '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
       "</div>",
     ].join("");
@@ -1420,7 +1456,7 @@ $("#reset").click(function (val) {
 //for login home page
 $("#submit").click(function () {
   let value = $("#loginId").val();
-  let temp = "0xdAeD6AB5908621A64Da29b662Ee6133cAa1641A9";
+  let temp = "0xE71c8D8cb2A738aD614D57E2aEd427784c6aCb98";
   if (value.toLowerCase() == temp.toLowerCase()) {
     window.location.href = "./Admin.html";
   } else if (value.toLowerCase() == userAccount.toLowerCase()) {
